@@ -18,10 +18,9 @@ namespace MVC.Initialize
 
         private void Start()
         {
-            var healthModel = new HealthModel(healthConfig.maxHealth);
+            var healthModel = new HealthModel(healthConfig);
             var healthController = new HealthController(healthModel, healthView);
 
-            healthView.Initialize(healthController);
             buttonsView.Initialize(healthController, healthConfig);
         }
     }

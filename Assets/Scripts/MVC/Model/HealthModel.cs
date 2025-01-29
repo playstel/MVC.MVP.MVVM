@@ -1,3 +1,4 @@
+using Config;
 using UnityEngine;
 
 namespace MVC.Model
@@ -8,29 +9,27 @@ namespace MVC.Model
     /// </summary>
     public class HealthModel
     {
-        private int _currentHealth;
-        private int _maxHealth;
+        public int CurrentHealth { get; private set; }
 
-        public int CurrentHealth => _currentHealth;
-        public int MaxHealth => _maxHealth;
+        public int MaxHealth { get; }
 
         public event System.Action OnHealthChanged;
 
-        public HealthModel(int maxHealth)
+        public HealthModel(HealthConfig healthConfig)
         {
-            _maxHealth = maxHealth;
-            _currentHealth = maxHealth;
+            MaxHealth = healthConfig.maxHealth;
+            CurrentHealth = healthConfig.startHealth;
         }
 
         public void TakeDamage(int damage)
         {
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
+            CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
             OnHealthChanged?.Invoke();
         }
 
         public void Heal(int amount)
         {
-            _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, _maxHealth);
+            CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
             OnHealthChanged?.Invoke();
         }
     }

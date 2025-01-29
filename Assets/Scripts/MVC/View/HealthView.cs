@@ -1,4 +1,5 @@
 using MVC.Controller;
+using TMPro;
 
 namespace MVC.View
 {
@@ -10,25 +11,26 @@ namespace MVC.View
     /// </summary>
     public class HealthView : MonoBehaviour
     {
-        [SerializeField] private Text healthText;
+        [SerializeField] private TMP_Text healthText;
+        [SerializeField] private TMP_Text healthInfo;
         [SerializeField] private Slider healthSlider;
-
-        private HealthController _controller;
-
-        public void Initialize(HealthController controller)
-        {
-            _controller = controller;
-        }
-
         public void UpdateHealthText(int currentHealth, int maxHealth)
         {
-            healthText.text = $"{currentHealth} / {maxHealth}";
+            if(healthText) healthText.text = $"{currentHealth} / {maxHealth}";
         }
 
         public void UpdateHealthSlider(int currentHealth, int maxHealth)
         {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
+            if (healthSlider)
+            {
+                healthSlider.maxValue = maxHealth;
+                healthSlider.value = currentHealth;
+            }
+        }
+        
+        public void UpdateHealthInfo(int currentHealth)
+        {
+            if(healthInfo) healthInfo.text = currentHealth <= 0 ? "Player is dead" : null;
         }
     }
 }

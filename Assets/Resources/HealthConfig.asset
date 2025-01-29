@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: HealthConfig
   m_EditorClassIdentifier: 
   maxHealth: 100
+  startHealth: 50
   damageValue: 20
-  healValue: 50
+  healValue: 20

@@ -16,8 +16,8 @@ namespace MVC.View
         {
             _controller = controller;
             
-            damageButton.onClick.AddListener(() => _controller.TakeDamage(healthConfig.damageValue));
-            healButton.onClick.AddListener(() => _controller.Heal(healthConfig.healValue));
+            if (damageButton) damageButton.onClick.AddListener(() => _controller.TakeDamage(healthConfig.damageValue));
+            if (healButton) healButton.onClick.AddListener(() => _controller.Heal(healthConfig.healValue));
         }
     }
 }

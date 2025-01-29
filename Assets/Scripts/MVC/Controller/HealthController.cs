@@ -17,7 +17,7 @@ namespace MVC.Controller
             _view = view;
 
             _model.OnHealthChanged += UpdateView;
-            UpdateView(); 
+            UpdateView();
         }
 
         public void TakeDamage(int damage)
@@ -34,6 +34,7 @@ namespace MVC.Controller
         {
             _view.UpdateHealthText(_model.CurrentHealth, _model.MaxHealth);
             _view.UpdateHealthSlider(_model.CurrentHealth, _model.MaxHealth);
+            _view.UpdateHealthInfo(_model.CurrentHealth);
         }
     }
 
