@@ -1,23 +1,19 @@
 using Interfaces;
-using MVC.Controller;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace MVC.View
+namespace MVP.View
 {
-    using UnityEngine;
-    using UnityEngine.UI;
-
-    /// <summary>
-    /// View отвечает за отображение данных и пользовательский интерфейс.
-    /// </summary>
     public class HealthView : MonoBehaviour, IHealthView
     {
         [SerializeField] private TMP_Text healthText;
         [SerializeField] private TMP_Text healthInfo;
         [SerializeField] private Slider healthSlider;
+        
         public void UpdateHealthText(int currentHealth, int maxHealth)
         {
-            if(healthText) healthText.text = $"{currentHealth} / {maxHealth}";
+            if (healthText) healthText.text = $"{currentHealth} / {maxHealth}";
         }
 
         public void UpdateHealthSlider(int currentHealth, int maxHealth)
@@ -28,10 +24,10 @@ namespace MVC.View
                 healthSlider.value = currentHealth;
             }
         }
-        
+
         public void UpdateHealthInfo(int currentHealth)
         {
-            if(healthInfo) healthInfo.text = currentHealth <= 0 ? "Player is dead" : "";
+            if (healthInfo) healthInfo.text = currentHealth <= 0 ? "Player is dead" : "";
         }
     }
 }

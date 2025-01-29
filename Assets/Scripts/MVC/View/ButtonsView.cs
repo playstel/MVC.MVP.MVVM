@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 namespace MVC.View
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ButtonsView : MonoBehaviour
     {
         [SerializeField] private Button damageButton;

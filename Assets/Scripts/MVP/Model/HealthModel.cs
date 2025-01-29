@@ -1,24 +1,19 @@
-using Config;
-using UnityEngine;
-
-namespace MVC.Model
+namespace MVP.Model
 {
-    /// <summary>
-    /// Модель хранит данные и управляет бизнес-логикой.
-    /// Независима от UI.
-    /// </summary>
+    using Config;
+    using UnityEngine;
+
     public class HealthModel
     {
         public int CurrentHealth { get; private set; }
-
         public int MaxHealth { get; }
 
         public event System.Action<int> OnHealthChanged;
 
-        public HealthModel(HealthConfig healthConfig)
+        public HealthModel(HealthConfig config)
         {
-            MaxHealth = healthConfig.maxHealth;
-            CurrentHealth = healthConfig.startHealth;
+            MaxHealth = config.maxHealth;
+            CurrentHealth = config.startHealth;
         }
 
         public void TakeDamage(int damage)
@@ -32,11 +27,10 @@ namespace MVC.Model
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, MaxHealth);
             NotifyHealthChanged();
         }
-        
+
         private void NotifyHealthChanged()
         {
             OnHealthChanged?.Invoke(CurrentHealth);
         }
     }
-
 }

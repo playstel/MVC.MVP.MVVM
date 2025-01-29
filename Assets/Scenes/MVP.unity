@@ -613,7 +613,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 424807864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d13dda2a3746f9a27fdbc5dec8cc87, type: 3}
+  m_Script: {fileID: 11500000, guid: 36ec7d27073744bca7f0e7cd3d90308c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthConfig: {fileID: 11400000, guid: dee7214186fed4e0fa256f6e39b2d240, type: 2}
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 901086944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1782a45ea7e4b82b6dde0aed4cd6283, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b81a8522244059b86be177f9ee13e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 338124102}
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581307354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 799486742d9d42daa4c0f29beff9cbbd, type: 3}
+  m_Script: {fileID: 11500000, guid: d6861c1f3e9d483085f2ce59af5e96ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageButton: {fileID: 401114805}

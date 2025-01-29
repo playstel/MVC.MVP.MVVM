@@ -10,11 +10,14 @@ namespace MVC.Initialize
     /// <summary>
     /// Cоздаёт модель, представление и контроллер, связывая их вместе.
     /// </summary>
-    public class SceneController : MonoBehaviour
+    public class SceneInitializer : MonoBehaviour
     {
+        [Header("Config")]
+        [SerializeField] private HealthConfig healthConfig;
+        
+        [Header("View")]
         [SerializeField] private HealthView healthView;
         [SerializeField] private ButtonsView buttonsView;
-        [SerializeField] private HealthConfig healthConfig;
 
         private void Start()
         {
