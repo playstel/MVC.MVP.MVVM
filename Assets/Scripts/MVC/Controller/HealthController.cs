@@ -1,4 +1,4 @@
-using MVC.Model;
+using Models;
 using MVC.View;
 
 namespace MVC.Controller

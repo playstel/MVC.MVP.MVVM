@@ -1,4 +1,4 @@
-using Config;
+using Configs;
 using MVC.Controller;
 using UnityEngine;
 using UnityEngine.UI;

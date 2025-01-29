@@ -1,6 +1,3 @@
-using System;
-using Config;
-using MVC.Controller;
 using UnityEngine;
 using UnityEngine.UI;
 

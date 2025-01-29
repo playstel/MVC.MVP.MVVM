@@ -1,12 +1,10 @@
 using Interfaces;
-using MVC.Controller;
+using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace MVC.View
 {
-    using UnityEngine;
-    using UnityEngine.UI;
-
     /// <summary>
     /// View отвечает за отображение данных и пользовательский интерфейс.
     /// </summary>
@@ -17,7 +15,7 @@ namespace MVC.View
         [SerializeField] private Slider healthSlider;
         public void UpdateHealthText(int currentHealth, int maxHealth)
         {
-            if(healthText) healthText.text = $"{currentHealth} / {maxHealth}";
+            if(healthText) healthText.text = $"{currentHealth} / {maxHealth} HP";
         }
 
         public void UpdateHealthSlider(int currentHealth, int maxHealth)

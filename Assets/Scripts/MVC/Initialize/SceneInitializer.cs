@@ -1,6 +1,6 @@
-using Config;
+using Configs;
+using Models;
 using MVC.Controller;
-using MVC.Model;
 using MVC.View;
 
 namespace MVC.Initialize
