@@ -1,4 +1,4 @@
-using Context.Configs;
+using GlobalContext.Configs;
 using MVVM.ViewModel;
 using UnityEngine;
 using UnityEngine.UI;

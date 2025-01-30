@@ -1,7 +1,7 @@
-using Context.Configs;
+using GlobalContext.Configs;
 using UnityEngine;
 
-namespace Context.Models
+namespace GlobalContext.Models
 {
     /// <summary>
     /// Model хранит данные.

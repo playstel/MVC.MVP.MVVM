@@ -1,4 +1,4 @@
-using Context.Interfaces;
+using GlobalContext.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;

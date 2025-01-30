@@ -1,17 +1,17 @@
-using Context.Configs;
-using Context.Models;
-using UnityEngine;
+using GlobalContext.Configs;
+using GlobalContext.Models;
 using MVVM.View;
 using MVVM.ViewModel;
+using UnityEngine;
 
-namespace MVVM.Initialize
+namespace MVVM.LocalContext
 {
     /// <summary>
     /// View привязан к ViewModel через поле ReactiveProperty (UniRx) в ViewModel.
     /// ViewModel получает данные из Model и передаёт их View.
     /// View не взаимодействует напрямую с Model.
     /// </summary>
-    public class SceneInitializer : MonoBehaviour
+    public class SceneContext : MonoBehaviour
     {
         [Header("Config")]
         [SerializeField] private HealthConfig healthConfig;

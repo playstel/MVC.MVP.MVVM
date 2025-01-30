@@ -1,4 +1,4 @@
-namespace Context.Interfaces
+namespace GlobalContext.Interfaces
 {
     /// <summary>
     /// В MVC данный интерфейс не выполняет ключевых функций

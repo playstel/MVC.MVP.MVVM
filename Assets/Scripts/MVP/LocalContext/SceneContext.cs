@@ -1,12 +1,12 @@
-using Context.Configs;
-using Context.Models;
+using GlobalContext.Configs;
+using GlobalContext.Models;
 using MVP.Presenter;
 using MVP.View;
 using UnityEngine;
 
-namespace MVP.Initialize
+namespace MVP.LocalContext
 {
-    public class SceneInitializer : MonoBehaviour
+    public class SceneContext : MonoBehaviour
     {
         [Header("Config")]
         [SerializeField] private HealthConfig healthConfig;

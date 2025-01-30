@@ -1,6 +1,6 @@
-using Context.Configs;
-using Context.Interfaces;
-using Context.Models;
+using GlobalContext.Configs;
+using GlobalContext.Interfaces;
+using GlobalContext.Models;
 using MVP.View;
 
 namespace MVP.Presenter

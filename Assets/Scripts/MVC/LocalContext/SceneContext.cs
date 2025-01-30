@@ -1,16 +1,15 @@
-using Context.Configs;
-using Context.Models;
+using GlobalContext.Configs;
+using GlobalContext.Models;
 using MVC.Controller;
 using MVC.View;
+using UnityEngine;
 
-namespace MVC.Initialize
+namespace MVC.LocalContext
 {
-    using UnityEngine;
-
     /// <summary>
     /// Локальный контекст, в котором создаются и соединяются Model, View и Controller.
     /// </summary>
-    public class SceneInitializer : MonoBehaviour
+    public class SceneContext : MonoBehaviour
     {
         [Header("Config")]
         [SerializeField] private HealthConfig healthConfig;

@@ -1,4 +1,4 @@
-using Context.Models;
+using GlobalContext.Models;
 using MVC.View;
 
 namespace MVC.Controller
