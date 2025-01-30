@@ -1,8 +1,6 @@
 # MVC.MVP.MVVM in Unity
 The project describes different approaches to UI development
 
----
-
 # MVC
 
 The Controller is directly passed into the View, creating more dependencies and making scaling and modifications more complex.
@@ -21,8 +19,6 @@ Process:
 -Model processes the business logic and triggers an update event.
 -Controller receives the updated Model data.
 -Controller updates the HealthView via its reference. The HealthView gets updated.
-
----
 
 # MVP
 
@@ -51,8 +47,6 @@ Process:
 -Model processes the business logic and triggers an update event.
 -Presenter receives the updated Model data.
 -Presenter updates the HealthView via the IView interface.
-
----
 
 # MVVM
 
