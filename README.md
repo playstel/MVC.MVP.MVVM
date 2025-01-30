@@ -1,2 +1,2 @@
-# MVC.MVP.MVVM
-Unity with MVC, MVP and MVVM architectures
+# MVC.MVP.MVVM in Unity
+three Unity scenes that describe different approaches to UI
