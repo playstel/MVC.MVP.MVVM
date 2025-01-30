@@ -15,7 +15,7 @@ namespace MVC.View
         [SerializeField] private Slider healthSlider;
         public void UpdateHealthText(int currentHealth, int maxHealth)
         {
-            if(healthText) healthText.text = $"{currentHealth} / {maxHealth} HP";
+            if(healthText) healthText.text = $"{currentHealth} / {maxHealth}";
         }
 
         public void UpdateHealthSlider(int currentHealth, int maxHealth)

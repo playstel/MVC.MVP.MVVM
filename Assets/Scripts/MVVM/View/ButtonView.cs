@@ -1,3 +1,4 @@
+using Context.Configs;
 using MVVM.ViewModel;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +10,10 @@ namespace MVVM.View
         [SerializeField] private Button damageButton;
         [SerializeField] private Button healButton;
 
-        public void Bind(HealthViewModel viewModel, int damageValue, int healValue)
+        public void Bind(HealthViewModel viewModel, HealthConfig healthConfig)
         {
-            if (damageButton) damageButton.onClick.AddListener(() => viewModel.TakeDamage(damageValue));
-            if (healButton) healButton.onClick.AddListener(() => viewModel.Heal(healValue));
+            if (damageButton) damageButton.onClick.AddListener(() => viewModel.TakeDamage(healthConfig.damageValue));
+            if (healButton) healButton.onClick.AddListener(() => viewModel.Heal(healthConfig.healValue));
         }
     }
 }

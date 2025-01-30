@@ -10,20 +10,20 @@ namespace MVVM.ViewModel
     /// </summary>
     public class HealthViewModel
     {
-        private readonly HealthModel _model;
+        private readonly HealthModel _healthModel;
 
-        // Реактивные свойства для UI
+        // Реактивное свойство автоматически обновляет View при изменении здоровья
         public ReactiveProperty<int> CurrentHealth { get; }
-        public ReactiveProperty<int> MaxHealth { get; }
+        public int MaxHealth { get; }
 
-        public HealthViewModel(HealthModel model)
+        public HealthViewModel(HealthModel healthModel)
         {
-            _model = model;
+            _healthModel = healthModel;
             
-            CurrentHealth = new ReactiveProperty<int>(_model.CurrentHealth);
-            MaxHealth = new ReactiveProperty<int>(_model.MaxHealth);
+            MaxHealth = _healthModel.MaxHealth;
+            CurrentHealth = new ReactiveProperty<int>(_healthModel.CurrentHealth);
 
-            _model.OnHealthChanged += UpdateHealth;
+            _healthModel.OnHealthChanged += UpdateHealth;
         }
 
         private void UpdateHealth(int newHealth)
@@ -33,12 +33,12 @@ namespace MVVM.ViewModel
 
         public void TakeDamage(int damage)
         {
-            _model.TakeDamage(damage);
+            _healthModel.TakeDamage(damage);
         }
 
         public void Heal(int amount)
         {
-            _model.Heal(amount);
+            _healthModel.Heal(amount);
         }
     }
 }

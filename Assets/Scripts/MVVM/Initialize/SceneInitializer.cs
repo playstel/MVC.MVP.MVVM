@@ -26,7 +26,7 @@ namespace MVVM.Initialize
             var viewModel = new HealthViewModel(model);
 
             healthView.Bind(viewModel);
-            buttonsView.Bind(viewModel, healthConfig.damageValue, healthConfig.healValue);
+            buttonsView.Bind(viewModel, healthConfig);
         }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace MVVM.View
 {
     /// <summary>
-    /// View теперь подписывается на изменения в ViewModel, а не вызывает обновления вручную.
+    /// View теперь подписывается на изменения CurrentHealth в ViewModel, а не вызывает обновления вручную.
     /// </summary>
     public class HealthView : MonoBehaviour
     {
@@ -17,33 +17,13 @@ namespace MVVM.View
 
         public void Bind(HealthViewModel viewModel)
         {
-            // Подписываем UI на реактивные свойства ViewModel
-            viewModel.CurrentHealth.Subscribe(UpdateHealthText).AddTo(this);
-            viewModel.CurrentHealth.Subscribe(UpdateHealthInfo).AddTo(this);
-            viewModel.CurrentHealth.Subscribe(UpdateHealthSlider).AddTo(this);
-            viewModel.MaxHealth.Subscribe(UpdateMaxHealth).AddTo(this);
-            
-            UpdateMaxHealth(viewModel.MaxHealth.Value);
-        }
-
-        private void UpdateHealthText(int currentHealth)
-        {
-            if (healthText) healthText.text = $"{currentHealth} HP";
-        }
-
-        private void UpdateHealthSlider(int currentHealth)
-        {
-            if (healthSlider) healthSlider.value = currentHealth;
-        }
-
-        private void UpdateMaxHealth(int maxHealth)
-        {
-            if (healthSlider) healthSlider.maxValue = maxHealth;
-        }
-
-        private void UpdateHealthInfo(int currentHealth)
-        {
-            if (healthInfo) healthInfo.text = currentHealth <= 0 ? "Player is dead" : "";
+            viewModel.CurrentHealth.Subscribe(currentHealth =>
+            {
+                healthText.text = $"{currentHealth} / {viewModel.MaxHealth}";
+                healthSlider.maxValue = viewModel.MaxHealth;
+                healthSlider.value = currentHealth;
+                healthInfo.text = currentHealth <= 0 ? "Player is dead" : "";
+            }).AddTo(this);
         }
     }
 }
