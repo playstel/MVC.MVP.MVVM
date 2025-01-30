@@ -1,8 +1,13 @@
-using Models;
+using Context.Models;
 using UniRx;
 
 namespace MVVM.ViewModel
 {
+    /// <summary>
+    /// Заменяем Presenter на ViewModel – теперь ViewModel напрямую управляет состоянием UI.
+    /// ViewModel не хранит ссылки на View – только данные, которые View привязывает через биндинги.
+    /// Используем события и ReactiveProperty для уведомления View.
+    /// </summary>
     public class HealthViewModel
     {
         private readonly HealthModel _model;

@@ -1,4 +1,4 @@
-namespace Interfaces
+namespace Context.Interfaces
 {
     public interface IHealthView
     {

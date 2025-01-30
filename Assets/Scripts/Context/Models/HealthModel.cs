@@ -1,7 +1,7 @@
-using Configs;
+using Context.Configs;
 using UnityEngine;
 
-namespace Models
+namespace Context.Models
 {
     /// <summary>
     /// Модель хранит данные и управляет бизнес-логикой.

@@ -1,5 +1,5 @@
-using Configs;
-using Models;
+using Context.Configs;
+using Context.Models;
 using MVP.Presenter;
 using MVP.View;
 using UnityEngine;

@@ -1,11 +1,16 @@
-using Configs;
-using Models;
+using Context.Configs;
+using Context.Models;
 using UnityEngine;
 using MVVM.View;
 using MVVM.ViewModel;
 
 namespace MVVM.Initialize
 {
+    /// <summary>
+    /// View привязан к ViewModel через Data Binding (например, UniRx).
+    /// ViewModel получает данные из Model и передаёт их View.
+    /// View не взаимодействует напрямую с Model.
+    /// </summary>
     public class SceneInitializer : MonoBehaviour
     {
         [Header("Config")]

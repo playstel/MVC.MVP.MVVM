@@ -1,31 +1,33 @@
-using Configs;
-using Interfaces;
-using Models;
+using Context.Configs;
+using Context.Interfaces;
+using Context.Models;
 using MVP.View;
 
 namespace MVP.Presenter
 {
     /// <summary>
     /// Презентер заменяет контроллер и управляет взаимодействием между View и Model.
-    /// View стала "глупой" и не знает о модели, теперь она просто отображает данные.
-    /// Presenter обновляет UI при каждом изменении модели.
-    /// Интерфейс IHealthView делает View заменяемой, что облегчает тестирование.
-    /// Кнопки сообщают Presenter о нажатиях, а не управляют логикой.
+    /// View стал пассивным компонентом, на который надо подписываться. В него не надо ничего передавать.
     /// </summary>
     public class HealthPresenter
     {
         private readonly HealthModel _healthModel;
-        private readonly IHealthView _healthView;
+        
         private readonly ButtonsView _buttonsView;
+        private readonly IHealthView _iHealthView;
 
-        public HealthPresenter(HealthModel healthModel, IHealthView healthView, ButtonsView buttonsView, HealthConfig config)
+        public HealthPresenter(HealthModel healthModel, IHealthView iHealthView, ButtonsView buttonsView, HealthConfig config)
         {
             _healthModel = healthModel;
-            _healthView = healthView;
-            _buttonsView = buttonsView;
-
+            
+            // Presenter обновляет UI при каждом изменении модели.
             _healthModel.OnHealthChanged += UpdateView;
+            
+            //Интерфейс IHealthView делает View заменяемой, что облегчает тестирование.
+            _iHealthView = iHealthView;
 
+            // Кнопки сообщают Presenter о нажатиях, а не управляют логикой.
+            _buttonsView = buttonsView;
             _buttonsView.OnDamageClicked += () => _healthModel.TakeDamage(config.damageValue);
             _buttonsView.OnHealClicked += () => _healthModel.Heal(config.healValue);
 
@@ -34,9 +36,9 @@ namespace MVP.Presenter
 
         private void UpdateView(int currentHealth)
         {
-            _healthView.UpdateHealthText(currentHealth, _healthModel.MaxHealth);
-            _healthView.UpdateHealthSlider(currentHealth, _healthModel.MaxHealth);
-            _healthView.UpdateHealthInfo(currentHealth);
+            _iHealthView.UpdateHealthText(currentHealth, _healthModel.MaxHealth);
+            _iHealthView.UpdateHealthSlider(currentHealth, _healthModel.MaxHealth);
+            _iHealthView.UpdateHealthInfo(currentHealth);
         }
     }
 }

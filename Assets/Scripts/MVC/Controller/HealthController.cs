@@ -1,41 +1,42 @@
-using Models;
+using Context.Models;
 using MVC.View;
 
 namespace MVC.Controller
 {
     /// <summary>
-    /// Контроллер управляет логикой приложения, связывая модель и представление.
+    /// 1) Controller получает команду от ButtonsView и обновляет Model.
+    /// 2) Controller подписывается на обновление Model и обновляет HealthView.
     /// </summary>
     public class HealthController
     {
-        private HealthModel _model;
-        private HealthView _view;
+        private HealthModel _healthModel;
+        private HealthView _healthView;
 
-        public HealthController(HealthModel model, HealthView view)
+        public HealthController(HealthModel healthModel, HealthView healthView)
         {
-            _model = model;
-            _view = view;
+            _healthModel = healthModel;
+            _healthView = healthView;
 
-            _model.OnHealthChanged += UpdateView;
+            _healthModel.OnHealthChanged += UpdateView;
             
-            UpdateView(_model.CurrentHealth);
+            UpdateView(_healthModel.CurrentHealth);
         }
 
         public void TakeDamage(int damage)
         {
-            _model.TakeDamage(damage);
+            _healthModel.TakeDamage(damage);
         }
 
         public void Heal(int amount)
         {
-            _model.Heal(amount);
+            _healthModel.Heal(amount);
         }
 
         private void UpdateView(int currentHealth)
         {
-            _view.UpdateHealthText(currentHealth, _model.MaxHealth);
-            _view.UpdateHealthSlider(currentHealth, _model.MaxHealth);
-            _view.UpdateHealthInfo(currentHealth);
+            _healthView.UpdateHealthText(currentHealth, _healthModel.MaxHealth);
+            _healthView.UpdateHealthSlider(currentHealth, _healthModel.MaxHealth);
+            _healthView.UpdateHealthInfo(currentHealth);
         }
     }
 

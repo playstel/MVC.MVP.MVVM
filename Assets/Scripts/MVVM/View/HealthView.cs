@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace MVVM.View
 {
+    /// <summary>
+    /// View теперь подписывается на изменения в ViewModel, а не вызывает обновления вручную.
+    /// </summary>
     public class HealthView : MonoBehaviour
     {
         [SerializeField] private TMP_Text healthText;
@@ -19,6 +22,8 @@ namespace MVVM.View
             viewModel.CurrentHealth.Subscribe(UpdateHealthInfo).AddTo(this);
             viewModel.CurrentHealth.Subscribe(UpdateHealthSlider).AddTo(this);
             viewModel.MaxHealth.Subscribe(UpdateMaxHealth).AddTo(this);
+            
+            UpdateMaxHealth(viewModel.MaxHealth.Value);
         }
 
         private void UpdateHealthText(int currentHealth)
