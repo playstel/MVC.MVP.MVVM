@@ -20,6 +20,9 @@ Process:
 -Controller receives the updated Model data.
 -Controller updates the HealthView via its reference. The HealthView gets updated.
 
+![image](https://github.com/user-attachments/assets/fbc59c0e-8721-47c7-8b6f-8fe9a5cc3ecd)
+
+
 # MVP
 
 MVP is the next evolution of MVC, designed for more complex user interfaces.
@@ -47,6 +50,9 @@ Process:
 -Model processes the business logic and triggers an update event.
 -Presenter receives the updated Model data.
 -Presenter updates the HealthView via the IView interface.
+
+![image](https://github.com/user-attachments/assets/5e1be0c5-cb9e-4708-ab14-0fc9085c2dfe)
+
 
 # MVVM
 
@@ -80,3 +86,6 @@ Process:
 -ViewModel receives the updated Model data.
 -ViewModel updates a reactive property.
 -View, which is subscribed to the reactive property, automatically updates.
+
+![image](https://github.com/user-attachments/assets/24d1148e-bfa6-4885-b57f-5da3ab725c32)
+
