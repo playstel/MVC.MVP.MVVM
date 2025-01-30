@@ -4,8 +4,10 @@ using UnityEngine;
 namespace Context.Models
 {
     /// <summary>
-    /// Модель хранит данные и управляет бизнес-логикой.
-    /// Независима от UI.
+    /// Model хранит данные.
+    /// Model управляет бизнес-логикой (здесь это Mathf.Clamp()).
+    /// Model триггерит событие OnHealthChanged при изменении данных. 
+    /// Model независима от UI.
     /// </summary>
     public class HealthModel
     {

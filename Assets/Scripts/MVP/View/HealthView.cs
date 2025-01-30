@@ -13,6 +13,7 @@ namespace MVP.View
         
         public void UpdateHealthText(int currentHealth, int maxHealth)
         {
+            Debug.Log($"Health was changed to {currentHealth} by IHealthView triggered from HealthPresenter/UpdateView");
             if (healthText) healthText.text = $"{currentHealth} / {maxHealth}";
         }
 

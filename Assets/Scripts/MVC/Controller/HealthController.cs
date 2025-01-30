@@ -4,8 +4,8 @@ using MVC.View;
 namespace MVC.Controller
 {
     /// <summary>
-    /// 1) Controller получает команду от ButtonsView и обновляет Model.
-    /// 2) Controller подписывается на обновление Model и обновляет HealthView.
+    /// Controller получает команду от ButtonsView и обновляет Model.
+    /// Controller подписывается на обновление Model и обновляет HealthView.
     /// </summary>
     public class HealthController
     {

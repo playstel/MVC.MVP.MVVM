@@ -8,7 +8,7 @@ namespace MVC.Initialize
     using UnityEngine;
 
     /// <summary>
-    /// Cоздаёт модель, представление и контроллер, связывая их вместе.
+    /// Локальный контекст, в котором создаются и соединяются Model, View и Controller.
     /// </summary>
     public class SceneInitializer : MonoBehaviour
     {

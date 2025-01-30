@@ -6,7 +6,7 @@ using TMPro;
 namespace MVC.View
 {
     /// <summary>
-    /// View отвечает за отображение данных и пользовательский интерфейс.
+    /// Контроллер получает ссылку на интерфейс IHealthView, который реализован во View 
     /// </summary>
     public class HealthView : MonoBehaviour, IHealthView
     {
@@ -15,6 +15,7 @@ namespace MVC.View
         [SerializeField] private Slider healthSlider;
         public void UpdateHealthText(int currentHealth, int maxHealth)
         {
+            Debug.Log($"Health was changed to {currentHealth} by HealthController");
             if(healthText) healthText.text = $"{currentHealth} / {maxHealth}";
         }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 namespace MVC.View
 {
     /// <summary>
+    /// View принимает зависимость от Controller.
     /// Юзер взаимодействует со View (нажимает кнопку).
     /// View передаёт событие в Controller.
     /// </summary>

@@ -7,7 +7,7 @@ using MVVM.ViewModel;
 namespace MVVM.Initialize
 {
     /// <summary>
-    /// View привязан к ViewModel через Data Binding (например, UniRx).
+    /// View привязан к ViewModel через поле ReactiveProperty (UniRx) в ViewModel.
     /// ViewModel получает данные из Model и передаёт их View.
     /// View не взаимодействует напрямую с Model.
     /// </summary>
