@@ -1,3 +1,6 @@
+using GlobalContext.Configs;
+using GlobalContext.Models;
+using MVVM.ViewModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,13 +14,10 @@ namespace MVP.View
         [SerializeField] private Button damageButton;
         [SerializeField] private Button healButton;
 
-        public event System.Action OnDamageClicked;
-        public event System.Action OnHealClicked;
-
-        private void Awake()
+        public void Initialize(HealthModel viewModel, HealthConfig healthConfig)
         {
-            if(damageButton) damageButton.onClick.AddListener(() => OnDamageClicked?.Invoke());
-            if(healButton) healButton.onClick.AddListener(()=>OnHealClicked?.Invoke());
+            if (damageButton) damageButton.onClick.AddListener(() => viewModel.TakeDamage(healthConfig.damageValue));
+            if (healButton) healButton.onClick.AddListener(() => viewModel.Heal(healthConfig.healValue));
         }
     }
 }

@@ -26,7 +26,9 @@ namespace MVVM.LocalContext
             var model = new HealthModel(healthConfig);
             var viewModel = new HealthViewModel(model);
 
-            viewModel.CurrentHealth.Subscribe(value => { healthView.UpdateData(value, viewModel.MaxHealth); }).AddTo(this);
+            viewModel.CurrentHealth
+                .Subscribe(value => { healthView.UpdateData(value, viewModel.MaxHealth); })
+                .AddTo(this);
             
             buttonsView.Initialize(viewModel, healthConfig);
         }

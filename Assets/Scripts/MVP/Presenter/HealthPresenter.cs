@@ -16,7 +16,7 @@ namespace MVP.Presenter
         private readonly ButtonsView _buttonsView;
         private readonly IHealthView _iHealthView;
 
-        public HealthPresenter(HealthModel healthModel, IHealthView iHealthView, ButtonsView buttonsView, HealthConfig config)
+        public HealthPresenter(HealthModel healthModel, IHealthView iHealthView)
         {
             _healthModel = healthModel;
             
@@ -25,11 +25,6 @@ namespace MVP.Presenter
             
             //Интерфейс IHealthView делает View заменяемой, что облегчает тестирование.
             _iHealthView = iHealthView;
-
-            // Кнопки сообщают Presenter о нажатиях, а не управляют логикой.
-            _buttonsView = buttonsView;
-            _buttonsView.OnDamageClicked += () => _healthModel.TakeDamage(config.damageValue);
-            _buttonsView.OnHealClicked += () => _healthModel.Heal(config.healValue);
 
             UpdateView(_healthModel.CurrentHealth);
         }

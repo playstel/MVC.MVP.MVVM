@@ -18,7 +18,9 @@ namespace MVP.LocalContext
         private void Start()
         {
             var healthModel = new HealthModel(healthConfig);
-            var healthPresenter = new HealthPresenter(healthModel, healthView, buttonsView, healthConfig);
+            var healthPresenter = new HealthPresenter(healthModel, healthView);
+
+            buttonsView.Initialize(healthModel, healthConfig);
         }
     }
 }
