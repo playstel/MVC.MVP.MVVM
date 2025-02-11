@@ -6,8 +6,8 @@ using MVP.View;
 namespace MVP.Presenter
 {
     /// <summary>
-    /// Презентер заменяет контроллер и управляет взаимодействием между View и Model.
-    /// View стал пассивным компонентом, на который надо подписываться. В него не надо ничего передавать.
+    /// Presenter обновляет UI при каждом изменении модели.
+    /// Интерфейс IHealthView делает View заменяемой, что облегчает тестирование.
     /// </summary>
     public class HealthPresenter
     {
@@ -20,10 +20,8 @@ namespace MVP.Presenter
         {
             _healthModel = healthModel;
             
-            // Presenter обновляет UI при каждом изменении модели.
             _healthModel.OnHealthChanged += UpdateView;
             
-            //Интерфейс IHealthView делает View заменяемой, что облегчает тестирование.
             _iHealthView = iHealthView;
 
             UpdateView(_healthModel.CurrentHealth);
