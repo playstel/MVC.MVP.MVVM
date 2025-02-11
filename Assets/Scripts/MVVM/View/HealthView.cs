@@ -17,7 +17,7 @@ namespace MVVM.View
 
         public void UpdateData(int currentHealth, int maxHealth)
         {
-            Debug.Log($"Health was changed to {currentHealth} by ReactiveProperty CurrentHealth from ViewModel");
+            Debug.Log($"Health was changed to {currentHealth} by ReactiveProperty subscription from ViewModel");
             healthText.text = $"{currentHealth} / {maxHealth}";
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
