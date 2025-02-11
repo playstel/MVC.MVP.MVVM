@@ -2,6 +2,7 @@ using GlobalContext.Configs;
 using GlobalContext.Models;
 using MVVM.View;
 using MVVM.ViewModel;
+using UniRx;
 using UnityEngine;
 
 namespace MVVM.LocalContext
@@ -25,8 +26,9 @@ namespace MVVM.LocalContext
             var model = new HealthModel(healthConfig);
             var viewModel = new HealthViewModel(model);
 
-            healthView.Bind(viewModel);
-            buttonsView.Bind(viewModel, healthConfig);
+            viewModel.CurrentHealth.Subscribe(value => { healthView.UpdateData(value, viewModel.MaxHealth); }).AddTo(this);
+            
+            buttonsView.Initialize(viewModel, healthConfig);
         }
     }
 }

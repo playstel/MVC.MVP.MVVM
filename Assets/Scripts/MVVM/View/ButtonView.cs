@@ -10,7 +10,7 @@ namespace MVVM.View
         [SerializeField] private Button damageButton;
         [SerializeField] private Button healButton;
 
-        public void Bind(HealthViewModel viewModel, HealthConfig healthConfig)
+        public void Initialize(HealthViewModel viewModel, HealthConfig healthConfig)
         {
             if (damageButton) damageButton.onClick.AddListener(() => viewModel.TakeDamage(healthConfig.damageValue));
             if (healButton) healButton.onClick.AddListener(() => viewModel.Heal(healthConfig.healValue));

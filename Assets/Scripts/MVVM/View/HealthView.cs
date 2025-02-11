@@ -15,16 +15,13 @@ namespace MVVM.View
         [SerializeField] private TMP_Text healthInfo;
         [SerializeField] private Slider healthSlider;
 
-        public void Bind(HealthViewModel viewModel)
+        public void UpdateData(int currentHealth, int maxHealth)
         {
-            viewModel.CurrentHealth.Subscribe(currentHealth =>
-            {
-                Debug.Log($"Health was changed to {currentHealth} by ReactiveProperty CurrentHealth from ViewModel");
-                healthText.text = $"{currentHealth} / {viewModel.MaxHealth}";
-                healthSlider.maxValue = viewModel.MaxHealth;
-                healthSlider.value = currentHealth;
-                healthInfo.text = currentHealth <= 0 ? "Player is dead" : "";
-            }).AddTo(this);
+            Debug.Log($"Health was changed to {currentHealth} by ReactiveProperty CurrentHealth from ViewModel");
+            healthText.text = $"{currentHealth} / {maxHealth}";
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+            healthInfo.text = currentHealth <= 0 ? "Player is dead" : "";
         }
     }
 }
